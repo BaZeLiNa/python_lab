@@ -1,3 +1,6 @@
+"""
+A class that inherits from an abstract class
+"""
 from models.aerial_vehicle import AerialVehicle
 
 
@@ -64,6 +67,6 @@ class Fighter(AerialVehicle):
         """
         return f"Fighter(manufacturer={self.manufacturer}, max_speed={self.max_speed}," \
                f" engine_type={self.engine_type}, max_weapon_weight={self.max_weapon_weight}, " \
-               f"fuel_capacity={self.fuel_capacity}" \
-               f"fuel_consumption_in_liters_per_hour={self.fuel_consumption_in_liters_per_hour}" \
+               f"fuel_capacity={self.fuel_capacity}, " \
+               f"fuel_consumption_in_liters_per_hour={self.fuel_consumption_in_liters_per_hour}, " \
                f"current_fuel={self.current_fuel})"

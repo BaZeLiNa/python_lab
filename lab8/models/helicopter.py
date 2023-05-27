@@ -1,3 +1,6 @@
+"""
+A class that inherits from an abstract class
+"""
 from models.aerial_vehicle import AerialVehicle
 
 

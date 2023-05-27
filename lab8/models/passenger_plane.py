@@ -1,3 +1,6 @@
+"""
+A class that inherits from an abstract class
+"""
 from models.aerial_vehicle import AerialVehicle
 
 
@@ -63,7 +66,6 @@ class PassengerPlane(AerialVehicle):
 
         return f"Passenger Plane(manufacturer={self.manufacturer}, max_speed={self.max_speed}," \
                f" engine_type={self.engine_type}, max_cargo_weight={self.max_cargo_weight}, " \
-               f"max_passengers_weight={self.max_passengers_weight}, fuel_capacity={self.fuel_capacity}" \
-               f"fuel_consumption_in_liters_per_hour={self.fuel_consumption_in_liters_per_hour}" \
+               f"max_passengers_weight={self.max_passengers_weight}, fuel_capacity={self.fuel_capacity}, " \
+               f"fuel_consumption_in_liters_per_hour={self.fuel_consumption_in_liters_per_hour}, " \
                f"current_fuel={self.current_fuel})"
-    

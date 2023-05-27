@@ -1,3 +1,6 @@
+"""
+Abstract class
+"""
 from abc import ABC, abstractmethod
 
 
@@ -18,7 +21,6 @@ class AerialVehicle(ABC):
         Returns:
             int: The maximum flying distance.
         """
-        pass
 
     @abstractmethod
     def get_max_delivery_weight(self):
@@ -27,4 +29,3 @@ class AerialVehicle(ABC):
         Returns:
             int: The maximum delivery weight.
         """
-        pass

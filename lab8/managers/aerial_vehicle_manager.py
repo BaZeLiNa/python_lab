@@ -1,3 +1,7 @@
+"""
+Class manager to create objects and validate methods
+"""
+
 from models.helicopter import Helicopter
 from models.drone import Drone
 from models.fighter import Fighter
@@ -33,7 +37,7 @@ class AerialVehicleManager:
         Returns:
             list: List of aerial vehicles with speed greater than the given speed.
         """
-        return list(filter(lambda func_vehicle: func_vehicle.max_speed > speed, self.aerial_vehicles))
+        return filter(lambda func_vehicle: getattr(func_vehicle, 'max_speed') > speed, self.aerial_vehicles)
 
     def find_by_engine_type(self, engine_type):
         """Find aerial vehicles with the specified engine type.
@@ -44,7 +48,10 @@ class AerialVehicleManager:
         Returns:
             list: List of aerial vehicles with the specified engine type.
         """
-        return list(filter(lambda func_vehicle: func_vehicle.engine_type == engine_type, self.aerial_vehicles))
+        return filter(lambda func_vehicle: getattr(func_vehicle, 'engine_type') == engine_type, self.aerial_vehicles)
+
+    def __len__(self):
+        return
 
 
 aerial_vehicle_manager = AerialVehicleManager()
