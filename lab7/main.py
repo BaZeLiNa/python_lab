@@ -1,8 +1,14 @@
-from helicopter import Helicopter
+"""
+Main file to create objects and validate methods
+"""
+from models.Helicopter import Helicopter
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+
 if __name__ == "__main__":
+    """
+    Creates a list of helicopter objects and prints their details.
+    """
+
     helicopters = [
         Helicopter(),
         Helicopter("MI-24", 0, 800, 200, 50),
@@ -11,4 +17,11 @@ if __name__ == "__main__":
     ]
 
     for helicopter in helicopters:
+        """
+        Prints the details of each helicopter object.
+        
+        Parameters:
+        - helicopter (Helicopter): The helicopter object to be printed.
+        """
+
         print(helicopter)
