@@ -1,16 +1,18 @@
 """
 Class manager to create objects and validate methods
 """
-
+from managers.aerial_vehicle_sm import AerialVehicleManagerSM
 from models.helicopter import Helicopter
 from models.drone import Drone
 from models.fighter import Fighter
 from models.passenger_plane import PassengerPlane
 from models.engine_type import EngineType
+from functools import wraps
 
 
 def decorator_number_four(function):
     """ Docstring"""
+    @wraps(function)
     def wrapper(*args, **kwargs):
         """
         A decorator that logs the input and output parameters of a function.
@@ -39,6 +41,7 @@ def decorator_number_four(function):
 
 def decorator_number_eleven(function):
     """Docstring"""
+    @wraps(function)
     def wrapper(*args, **kwargs):
         """
         A decorator that prints the length of the iterable object returned by a function.
@@ -152,47 +155,62 @@ class AerialVehicleManagerRM:
         Returns:
             dict: A dictionary with keys "all" and "any" indicating the results of the checks.
         """
+        print("/n/n")
+        print(f"Function name: {self.func_with_all_any.__name__}")
+        print(f"Function docstring {self.func_with_all_any.__doc__}")
         return {
             "all": all(getattr(element, "max_speed") > speed for element in self.aerial_vehicles),
             "any": any(getattr(element, "max_speed") > speed for element in self.aerial_vehicles)
         }
 
 
-aerial_vehicle_manager = AerialVehicleManagerRM()
-aerial_vehicle_manager.add_aerial_vehicle(
-    Helicopter({"crew transport", "weapons transport", "combat"}, "Boeing",
-               120, EngineType.PISTON, "CH-47", 0, 3000, 600, 560, 35, 600, 500))
-aerial_vehicle_manager.add_aerial_vehicle(
-    Helicopter({"reconnaissance", "combat"}, "Bell",
-               150, EngineType.PISTON, "UH-1", 1200, 2200, 500, 300, 40, 400, 300))
-aerial_vehicle_manager.add_aerial_vehicle(Drone({"reconnaissance", "drop grenade"},
-                                                "DJI", 50, EngineType.ELECTRIC, 4, 100, 200))
-aerial_vehicle_manager.add_aerial_vehicle(Drone({"reconnaissance"}, "DJI 2", 30, EngineType.ELECTRIC, 2, 0, 500))
-aerial_vehicle_manager.add_aerial_vehicle(Fighter({"reconnaissance, air combat, accompaniment"}, "F-14", 1300,
-                                                  EngineType.GAS_TURBINE, 600, 400, 150, 350))
-aerial_vehicle_manager.add_aerial_vehicle(Fighter({"reconnaissance", "air combat", "bombing of the reds"},
-                                                  "F-16", 1500, EngineType.GAS_TURBINE, 700, 600, 140, 600))
-aerial_vehicle_manager.add_aerial_vehicle(
-    PassengerPlane({"crew transport", "weapons transport"}, "Boeing 747",
-                   800, EngineType.GAS_TURBINE, 25000, 10000, 40000, 400, 25000))
-aerial_vehicle_manager.add_aerial_vehicle(
-    PassengerPlane({"transport goods"}, "Boeing 737", 700, EngineType.GAS_TURBINE, 20000, 15000, 30000, 500, 28000))
+if __name__ == "__main__":
+    aerial_vehicle_manager = AerialVehicleManagerRM()
+    aerial_vehicle_manager.add_aerial_vehicle(
+        Helicopter({"crew transport", "weapons transport", "combat"}, "Boeing",
+                   120, EngineType.PISTON, "CH-47", 0, 3000, 600, 560, 35, 600, 500))
+    aerial_vehicle_manager.add_aerial_vehicle(
+        Helicopter({"reconnaissance", "combat"}, "Bell",
+                   150, EngineType.PISTON, "UH-1", 1200, 2200, 500, 300, 40, 400, 300))
+    aerial_vehicle_manager.add_aerial_vehicle(Drone({"reconnaissance", "drop grenade"},
+                                                    "DJI", 50, EngineType.ELECTRIC, 4, 100, 200))
+    aerial_vehicle_manager.add_aerial_vehicle(Drone({"reconnaissance"}, "DJI 2", 30, EngineType.ELECTRIC, 2, 0, 500))
+    aerial_vehicle_manager.add_aerial_vehicle(Fighter({"reconnaissance, air combat, accompaniment"}, "F-14", 1300,
+                                                      EngineType.GAS_TURBINE, 600, 400, 150, 350))
+    aerial_vehicle_manager.add_aerial_vehicle(Fighter({"reconnaissance", "air combat", "bombing of the reds"},
+                                                      "F-16", 1500, EngineType.GAS_TURBINE, 700, 600, 140, 600))
+    aerial_vehicle_manager.add_aerial_vehicle(
+        PassengerPlane({"crew transport", "weapons transport"}, "Boeing 747",
+                       800, EngineType.GAS_TURBINE, 25000, 10000, 40000, 400, 25000))
+    aerial_vehicle_manager.add_aerial_vehicle(
+        PassengerPlane({"transport goods"}, "Boeing 737", 700, EngineType.GAS_TURBINE, 20000, 15000, 30000, 500, 28000))
 
-for aerial_vehicle in aerial_vehicle_manager.aerial_vehicles:
-    print(aerial_vehicle)
+    for aerial_vehicle in aerial_vehicle_manager.aerial_vehicles:
+        print(aerial_vehicle)
 
-print("\n\nAerial vehicles faster than 200 km/h:")
-vehicles_speed_greater_than = aerial_vehicle_manager.find_speed_greater_than(200)
-for vehicle in vehicles_speed_greater_than:
-    print(vehicle)
-print("")
-aerial_vehicle_manager.func_with_enumerate()
-print("")
-aerial_vehicle_manager.func_with_zip()
-for vehicle in aerial_vehicle_manager.aerial_vehicles:
-    print(vehicle.func_with_dict(int))
-print("")
-print("")
-print("")
-print("")
-print(aerial_vehicle_manager.func_with_all_any(200))
+    print("\n\nAerial vehicles faster than 200 km/h:")
+    vehicles_speed_greater_than = aerial_vehicle_manager.find_speed_greater_than(200)
+    for vehicle in vehicles_speed_greater_than:
+        print(vehicle)
+    print("")
+    aerial_vehicle_manager.func_with_enumerate()
+    print("")
+    aerial_vehicle_manager.func_with_zip()
+    for vehicle in aerial_vehicle_manager.aerial_vehicles:
+        print(vehicle.func_with_dict(int))
+    print("")
+    print("")
+    print("")
+    print("")
+    print(aerial_vehicle_manager.func_with_all_any(200))
+    #print(aerial_vehicle_manager.func_with_all_any(200).__name__())
+    #print(aerial_vehicle_manager.func_with_all_any(200).__doc__())
+    test_manager = AerialVehicleManagerSM(aerial_vehicle_manager)
+    for element in test_manager:
+        print(0)
+    print("")
+    for element in test_manager:
+        print(1)
+    print("")
+    for element in test_manager:
+        print(2)

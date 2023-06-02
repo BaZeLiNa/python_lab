@@ -25,12 +25,12 @@ class AerialVehicleManagerSM:
         self.index = 0
 
     def __iter__(self):
-        return iter(self.regular_manager.aerial_vehicles.task_variations)
+        return self
 
     def __len__(self):
         length = 0
         for element in self.regular_manager.aerial_vehicles:
-            length += len(getattr(element, "task_variation"))
+            length += len(getattr(element, "task_variation", ""))
         return length
 
     def __getitem__(self, index):
@@ -38,6 +38,7 @@ class AerialVehicleManagerSM:
 
     def __next__(self):
         if self.index >= len(self.regular_manager.aerial_vehicles):
+            self.index = 0
             raise StopIteration
         value = self.regular_manager.aerial_vehicles[self.index]
         self.index += 1
