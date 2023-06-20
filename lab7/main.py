@@ -1,7 +1,7 @@
 """
 Main file to create objects and validate methods
 """
-from models.Helicopter import Helicopter
+from helicopter import Helicopter
 
 
 if __name__ == "__main__":
