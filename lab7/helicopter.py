@@ -1,10 +1,9 @@
 """
-A class that inherits from an abstract class
+A class Helicopter
 """
-from models.aerial_vehicle import AerialVehicle
 
 
-class Helicopter(AerialVehicle):
+class Helicopter:
     """Class representing a Helicopter."""
 
     def __init__(self, model="", current_altitude=0, max_altitude=0,
@@ -72,7 +71,6 @@ class Helicopter(AerialVehicle):
         Returns:
             str: String representation of the Helicopter.
         """
-        return f"Helicopter(manufacturer={self.manufacturer}, max_speed={self.max_speed}," \
-               f" engine_type={self.engine_type}, vehicle_id={self.vehicle_id}, model={self.model}, " \
+        return f"Helicopter(vehicle_id={self.vehicle_id}, model={self.model}, " \
                f"current_altitude={self.current_altitude}, max_altitude={self.max_altitude}, " \
                f"fuel_capacity={self.fuel_capacity}, current_fuel={self.current_fuel})"
