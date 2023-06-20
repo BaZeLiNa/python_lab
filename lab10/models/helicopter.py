@@ -59,7 +59,7 @@ class Helicopter(AerialVehicle):
             self.current_altitude += altitude
         else:
             self.current_altitude = self.max_altitude
-            raise AscendException
+            raise AscendException("Too high")
 
     @logger(DescendException, "file")
     def descend(self, altitude):
@@ -72,7 +72,7 @@ class Helicopter(AerialVehicle):
             self.current_altitude -= altitude
         else:
             self.current_altitude = 0
-            raise DescendException
+            raise DescendException("Altitude cannot be less than 0")
 
     @logger(RefuelException, "console")
     def refuel(self, fuel):
@@ -85,7 +85,7 @@ class Helicopter(AerialVehicle):
             self.current_fuel += fuel
         else:
             self.current_fuel = self.fuel_capacity
-            raise RefuelException
+            raise RefuelException("Too much")
 
     @classmethod
     def get_instance(cls):

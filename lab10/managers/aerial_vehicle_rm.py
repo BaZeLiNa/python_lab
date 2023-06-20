@@ -221,3 +221,4 @@ if __name__ == "__main__":
     exception_test_object.ascend(3100)
     exception_test_object.descend(3100)
     exception_test_object.refuel(50)
+

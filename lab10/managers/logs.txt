@@ -1,26 +1,2 @@
-2023-06-03 17:53:12,616 - ERROR - Exception in function dfg: AscendException kjhgf
-2023-06-03 17:53:12,617 - ERROR - Exception in function dfg: DescendException kjhgf
-2023-06-03 17:53:12,617 - ERROR - Exception in function dfg: DescendException kjhgf
-2023-06-03 17:57:24,295 - ERROR - Exception in function ascend: AscendException Too high
-2023-06-03 17:57:24,296 - ERROR - Exception in function descend: DescendException Altitude cannot be less than 0
-2023-06-03 17:57:24,296 - ERROR - Exception in function descend: DescendException Altitude cannot be less than 0
-2023-06-03 17:57:49,598 - ERROR - Exception in function ascend: AscendException Too high
-2023-06-03 17:58:05,944 - ERROR - Exception in function descend: DescendException Altitude cannot be less than 0
-2023-06-03 17:58:16,538 - ERROR - Exception in function ascend: AscendException Too high
-2023-06-03 17:58:16,539 - ERROR - Exception in function descend: DescendException Altitude cannot be less than 0
-2023-06-03 17:58:16,539 - ERROR - Exception in function descend: DescendException Altitude cannot be less than 0
-2023-06-03 17:58:33,690 - ERROR - Exception in function ascend: AscendException Too high
-2023-06-03 17:58:33,691 - ERROR - Exception in function descend: DescendException Altitude cannot be less than 0
-2023-06-03 17:58:33,691 - ERROR - Exception in function descend: DescendException Altitude cannot be less than 0
-2023-06-03 18:01:33,962 - ERROR - Exception in function ascend: AscendException Too high
-2023-06-03 18:01:42,045 - ERROR - Exception in function ascend: AscendException Too high
-2023-06-03 18:01:42,046 - ERROR - Exception in function descend: DescendException Altitude cannot be less than 0
-2023-06-03 18:01:42,046 - ERROR - Exception in function descend: DescendException Altitude cannot be less than 0
-2023-06-03 18:20:36,600 - ERROR - Exception in function ascend: AscendException Too high
-2023-06-03 18:20:36,600 - ERROR - Exception in function descend: DescendException Altitude cannot be less than 0
-2023-06-03 18:27:38,134 - ERROR - Exception in function ascend: AscendException Too high
-2023-06-03 18:27:38,134 - ERROR - Exception in function descend: DescendException Altitude cannot be less than 0
-2023-06-03 18:28:34,243 - ERROR - Exception in function ascend: AscendException Too high
-2023-06-03 18:28:34,243 - ERROR - Exception in function descend: DescendException Altitude cannot be less than 0
-2023-06-03 18:28:53,369 - ERROR - Exception in function ascend: AscendException Too high
-2023-06-03 18:28:53,369 - ERROR - Exception in function descend: DescendException Altitude cannot be less than 0
+2023-06-06 10:53:19,654 - ERROR - Exception in function ascend: AscendException Too high
+2023-06-06 10:53:19,654 - ERROR - Exception in function descend: DescendException Altitude cannot be less than 0

@@ -17,7 +17,7 @@ def log_exception(problem, log_file, func_name):
     my_logger.setLevel(logging.ERROR)
     file_handler = next((handler for handler in my_logger.handlers if isinstance(handler, logging.FileHandler)), None)
     if file_handler is None:
-        file_handler = logging.FileHandler(log_file)
+        file_handler = logging.FileHandler(log_file, mode='w')
         file_handler.setLevel(logging.ERROR)
         formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
         file_handler.setFormatter(formatter)
@@ -26,6 +26,7 @@ def log_exception(problem, log_file, func_name):
     my_logger.error(log_message)
 
 
+# pylint: disable=inconsistent-return-statements
 def logger(exception_type, mode):
     """
     Decorator to log exceptions raised by a function.
@@ -34,6 +35,7 @@ def logger(exception_type, mode):
     :param mode: The logging mode ('console' or 'file').
     :return: The decorated function.
     """
+
     def decorator(func):
         @wraps(func)
         def wrapper(*args, **kwargs):
@@ -41,9 +43,11 @@ def logger(exception_type, mode):
                 return func(*args, **kwargs)
             except exception_type as problem:
                 if mode == "console":
-                    logging.error(f"Exception in function {func.__name__}: {problem.__class__.__name__} "
+                    logging.error(f"Exception in function {func.__name__}: {problem.__class__.__name__} " + \
                                   f"{problem.message}")
                 elif mode == "file":
                     log_exception(problem, "logs.txt", func.__name__)
+
         return wrapper
+
     return decorator

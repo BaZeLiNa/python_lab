@@ -52,7 +52,7 @@ class Fighter(AerialVehicle):
             self.current_fuel += fuel
         else:
             self.current_fuel = self.fuel_capacity
-            raise RefuelException
+            raise RefuelException("Too much")
 
     def fuel_dumping(self, distance_to_base):
         """Check if fuel dumping is required for the Fighter aircraft.

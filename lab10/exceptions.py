@@ -11,7 +11,7 @@ class RefuelException(Exception):
         message (str): Custom error message. Defaults to "Too much".
     """
 
-    def __init__(self, message="Too much"):
+    def __init__(self, message):
         self.message = message
         super().__init__(self.message)
 
@@ -24,7 +24,7 @@ class DescendException(Exception):
         message (str): Custom error message. Defaults to "Altitude cannot be less than 0".
     """
 
-    def __init__(self, message="Altitude cannot be less than 0"):
+    def __init__(self, message):
         self.message = message
         super().__init__(self.message)
 
@@ -37,6 +37,6 @@ class AscendException(Exception):
         message (str): Custom error message. Defaults to "Too high".
     """
 
-    def __init__(self, message="Too high"):
+    def __init__(self, message):
         self.message = message
         super().__init__(self.message)
