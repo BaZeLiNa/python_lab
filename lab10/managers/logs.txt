@@ -1,0 +1,2 @@
+2023-06-06 10:53:19,654 - ERROR - Exception in function ascend: AscendException Too high
+2023-06-06 10:53:19,654 - ERROR - Exception in function descend: DescendException Altitude cannot be less than 0
